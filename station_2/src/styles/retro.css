@@ -1,0 +1,679 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ═══════════════════════════════════════════════════════════
+   BASE RESET + FONTS
+═══════════════════════════════════════════════════════════ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: auto;
+}
+
+:root {
+  --win-bg: #008080;
+  --win-surface: #c0c0c0;
+  --win-darker: #808080;
+  --win-darkest: #404040;
+  --win-blue: #000080;
+  --win-text: #000000;
+  --win-white: #ffffff;
+  --win-highlight: #000080;
+  --win-highlight-text: #ffffff;
+
+  /* Bevel colors */
+  --bevel-light: #ffffff;
+  --bevel-light2: #dfdfdf;
+  --bevel-dark: #808080;
+  --bevel-dark2: #404040;
+
+  font-family: 'Tahoma', 'MS Sans Serif', Arial, sans-serif;
+  font-size: 11px;
+}
+
+body {
+  background: var(--win-bg);
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  user-select: none;
+  cursor: default;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CLASSIC BEVELED BUTTON
+═══════════════════════════════════════════════════════════ */
+.btn-win {
+  background: var(--win-surface);
+  border: none;
+  box-shadow:
+    inset -1px -1px 0 var(--bevel-dark2),
+    inset -2px -2px 0 var(--bevel-dark),
+    inset 1px 1px 0 var(--bevel-light),
+    inset 2px 2px 0 var(--bevel-light2);
+  padding: 3px 10px;
+  font-family: inherit;
+  font-size: 11px;
+  color: var(--win-text);
+  cursor: default;
+  min-width: 75px;
+  text-align: center;
+  outline: none;
+}
+
+.btn-win:active,
+.btn-win.pressed {
+  box-shadow:
+    inset 1px 1px 0 var(--bevel-dark2),
+    inset 2px 2px 0 var(--bevel-dark),
+    inset -1px -1px 0 var(--bevel-light),
+    inset -2px -2px 0 var(--bevel-light2);
+  padding-top: 4px;
+  padding-left: 11px;
+}
+
+.btn-win:focus {
+  outline: 1px dotted #000;
+  outline-offset: -4px;
+}
+
+.btn-win:disabled {
+  color: var(--bevel-dark);
+  text-shadow: 1px 1px 0 var(--bevel-light);
+  cursor: default;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   WINDOW FRAME
+═══════════════════════════════════════════════════════════ */
+.win-frame {
+  background: var(--win-surface);
+  border-top: 2px solid var(--bevel-light);
+  border-left: 2px solid var(--bevel-light);
+  border-right: 2px solid var(--bevel-dark2);
+  border-bottom: 2px solid var(--bevel-dark2);
+  box-shadow: 1px 1px 0 var(--bevel-dark), -1px -1px 0 var(--bevel-light2);
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  min-width: 200px;
+  min-height: 100px;
+}
+
+.win-titlebar {
+  background: linear-gradient(to right, var(--win-blue), #1084d0);
+  color: var(--win-white);
+  display: flex;
+  align-items: center;
+  padding: 2px 3px;
+  font-weight: bold;
+  font-size: 11px;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.win-titlebar.inactive {
+  background: linear-gradient(to right, var(--bevel-dark), #aeaeae);
+}
+
+.win-titlebar-title {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 11px;
+}
+
+.win-titlebar-btn {
+  width: 16px;
+  height: 14px;
+  background: var(--win-surface);
+  border: none;
+  box-shadow:
+    inset -1px -1px 0 var(--bevel-dark2),
+    inset 1px 1px 0 var(--bevel-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  cursor: default;
+  flex-shrink: 0;
+  color: var(--win-text);
+  padding: 0;
+  line-height: 1;
+  font-family: 'Marlett', 'Tahoma', sans-serif;
+}
+
+.win-titlebar-btn:active {
+  box-shadow:
+    inset 1px 1px 0 var(--bevel-dark2),
+    inset -1px -1px 0 var(--bevel-light);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   INSET PANELS (like a text box or list view)
+═══════════════════════════════════════════════════════════ */
+.win-inset {
+  background: #ffffff;
+  border-top: 1px solid var(--bevel-dark2);
+  border-left: 1px solid var(--bevel-dark2);
+  border-right: 1px solid var(--bevel-light);
+  border-bottom: 1px solid var(--bevel-light);
+  box-shadow: inset 1px 1px 0 var(--bevel-dark);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RAISED PANELS
+═══════════════════════════════════════════════════════════ */
+.win-raised {
+  border-top: 1px solid var(--bevel-light);
+  border-left: 1px solid var(--bevel-light);
+  border-right: 1px solid var(--bevel-dark2);
+  border-bottom: 1px solid var(--bevel-dark2);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   MENU BAR + MENUS
+═══════════════════════════════════════════════════════════ */
+.win-menubar {
+  background: var(--win-surface);
+  display: flex;
+  flex-direction: row;
+  padding: 1px 2px;
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--bevel-dark);
+}
+
+.win-menubar-item {
+  padding: 2px 6px;
+  font-size: 11px;
+  cursor: default;
+  position: relative;
+}
+
+.win-menubar-item:hover,
+.win-menubar-item.open {
+  background: var(--win-highlight);
+  color: var(--win-highlight-text);
+}
+
+.win-dropdown {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  background: var(--win-surface);
+  min-width: 140px;
+  z-index: 9999;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  border-top: 1px solid var(--bevel-light);
+  border-left: 1px solid var(--bevel-light);
+  border-right: 1px solid var(--bevel-dark2);
+  border-bottom: 1px solid var(--bevel-dark2);
+}
+
+.win-dropdown-item {
+  padding: 3px 20px 3px 24px;
+  font-size: 11px;
+  cursor: default;
+  white-space: nowrap;
+}
+
+.win-dropdown-item:hover {
+  background: var(--win-highlight);
+  color: var(--win-highlight-text);
+}
+
+.win-dropdown-separator {
+  height: 1px;
+  background: var(--bevel-dark);
+  margin: 2px 2px;
+  box-shadow: 0 1px 0 var(--bevel-light);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   TASKBAR
+═══════════════════════════════════════════════════════════ */
+.win-taskbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background: var(--win-surface);
+  border-top: 2px solid var(--bevel-light);
+  box-shadow: 0 -1px 0 var(--bevel-dark);
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px 4px;
+  z-index: 10000;
+}
+
+.win-start-btn {
+  background: var(--win-surface);
+  border: none;
+  box-shadow:
+    inset -1px -1px 0 var(--bevel-dark2),
+    inset -2px -2px 0 var(--bevel-dark),
+    inset 1px 1px 0 var(--bevel-light),
+    inset 2px 2px 0 var(--bevel-light2);
+  height: 22px;
+  padding: 0 8px;
+  font-weight: bold;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: default;
+  font-family: inherit;
+}
+
+.win-start-btn:active,
+.win-start-btn.open {
+  box-shadow:
+    inset 1px 1px 0 var(--bevel-dark2),
+    inset 2px 2px 0 var(--bevel-dark);
+}
+
+.taskbar-btn {
+  height: 22px;
+  min-width: 120px;
+  max-width: 160px;
+  background: var(--win-surface);
+  box-shadow:
+    inset -1px -1px 0 var(--bevel-dark2),
+    inset 1px 1px 0 var(--bevel-light);
+  padding: 0 6px;
+  font-size: 11px;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  overflow: hidden;
+  cursor: default;
+  border: none;
+  text-align: left;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.taskbar-btn.active {
+  box-shadow:
+    inset 1px 1px 0 var(--bevel-dark2),
+    inset -1px -1px 0 var(--bevel-light);
+  background: #b0b0b0;
+}
+
+.win-tray {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 6px;
+  height: 22px;
+  box-shadow: inset 1px 1px 0 var(--bevel-dark2), inset -1px -1px 0 var(--bevel-light);
+  font-size: 11px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   START MENU
+═══════════════════════════════════════════════════════════ */
+.win-start-menu {
+  position: fixed;
+  bottom: 30px;
+  left: 0;
+  width: 200px;
+  background: var(--win-surface);
+  border-top: 2px solid var(--bevel-light);
+  border-left: 2px solid var(--bevel-light);
+  border-right: 2px solid var(--bevel-dark2);
+  border-bottom: 2px solid var(--bevel-dark2);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  z-index: 10001;
+  display: flex;
+  flex-direction: row;
+}
+
+.win-start-menu-sidebar {
+  width: 20px;
+  background: linear-gradient(to top, #000080, #1084d0);
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 4px;
+}
+
+.win-start-menu-sidebar span {
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  letter-spacing: 1px;
+  white-space: nowrap;
+  padding: 0 2px;
+  font-style: italic;
+}
+
+.win-start-menu-items {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.win-start-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 8px;
+  font-size: 11px;
+  cursor: default;
+  position: relative;
+  color: #000000;
+}
+
+.win-start-menu-item:hover {
+  background: var(--win-highlight);
+  color: var(--win-highlight-text);
+}
+
+.win-start-menu-separator {
+  height: 1px;
+  background: var(--bevel-dark);
+  margin: 2px 4px;
+  box-shadow: 0 1px 0 var(--bevel-light);
+}
+
+.win-start-submenu {
+  position: absolute;
+  left: 100%;
+  top: 0;
+  background: var(--win-surface);
+  min-width: 160px;
+  z-index: 10002;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  border-top: 1px solid var(--bevel-light);
+  border-left: 1px solid var(--bevel-light);
+  border-right: 1px solid var(--bevel-dark2);
+  border-bottom: 1px solid var(--bevel-dark2);
+  color: #000000;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   DESKTOP ICONS
+═══════════════════════════════════════════════════════════ */
+.desktop-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 72px;
+  padding: 4px;
+  cursor: default;
+  border: 1px solid transparent;
+  gap: 2px;
+}
+
+.desktop-icon:hover,
+.desktop-icon.selected {
+  background: rgba(0, 0, 128, 0.3);
+  border: 1px dotted #fff;
+}
+
+.desktop-icon .icon-emoji {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.desktop-icon .icon-label {
+  color: #ffffff;
+  font-size: 11px;
+  text-align: center;
+  text-shadow: 1px 1px 1px #000;
+  word-break: break-word;
+  max-width: 70px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CONTEXT MENU
+═══════════════════════════════════════════════════════════ */
+.win-context-menu {
+  position: fixed;
+  background: var(--win-surface);
+  z-index: 20000;
+  min-width: 140px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  border-top: 1px solid var(--bevel-light);
+  border-left: 1px solid var(--bevel-light);
+  border-right: 1px solid var(--bevel-dark2);
+  border-bottom: 1px solid var(--bevel-dark2);
+}
+
+.win-context-item {
+  padding: 4px 20px;
+  font-size: 11px;
+  cursor: default;
+  white-space: nowrap;
+}
+
+.win-context-item:hover {
+  background: var(--win-highlight);
+  color: var(--win-highlight-text);
+}
+
+.win-context-separator {
+  height: 1px;
+  background: var(--bevel-dark);
+  margin: 2px 2px;
+  box-shadow: 0 1px 0 var(--bevel-light);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   STATUS BAR
+═══════════════════════════════════════════════════════════ */
+.win-statusbar {
+  height: 20px;
+  background: var(--win-surface);
+  display: flex;
+  align-items: center;
+  padding: 0 4px;
+  font-size: 11px;
+  border-top: 1px solid var(--bevel-dark);
+  flex-shrink: 0;
+  gap: 4px;
+}
+
+.win-statusbar-panel {
+  box-shadow: inset 1px 1px 0 var(--bevel-dark2), inset -1px -1px 0 var(--bevel-light);
+  padding: 0 4px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SCROLLBARS
+═══════════════════════════════════════════════════════════ */
+::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--win-surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--win-surface);
+  box-shadow:
+    inset -1px -1px 0 var(--bevel-dark2),
+    inset 1px 1px 0 var(--bevel-light);
+}
+
+::-webkit-scrollbar-button {
+  background: var(--win-surface);
+  box-shadow:
+    inset -1px -1px 0 var(--bevel-dark2),
+    inset 1px 1px 0 var(--bevel-light);
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--win-surface);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FORM ELEMENTS
+═══════════════════════════════════════════════════════════ */
+.win-input {
+  background: white;
+  border-top: 1px solid var(--bevel-dark2);
+  border-left: 1px solid var(--bevel-dark2);
+  border-right: 1px solid var(--bevel-light);
+  border-bottom: 1px solid var(--bevel-light);
+  box-shadow: inset 1px 1px 0 var(--bevel-dark);
+  padding: 2px 4px;
+  font-family: inherit;
+  font-size: 11px;
+  outline: none;
+}
+
+.win-input:focus {
+  outline: 1px solid var(--win-highlight);
+}
+
+select.win-select {
+  background: white;
+  border-top: 1px solid var(--bevel-dark2);
+  border-left: 1px solid var(--bevel-dark2);
+  border-right: 1px solid var(--bevel-light);
+  border-bottom: 1px solid var(--bevel-light);
+  box-shadow: inset 1px 1px 0 var(--bevel-dark);
+  padding: 2px 4px;
+  font-family: inherit;
+  font-size: 11px;
+  outline: none;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   TABS
+═══════════════════════════════════════════════════════════ */
+.win-tab {
+  padding: 3px 10px;
+  font-size: 11px;
+  cursor: default;
+  background: var(--win-surface);
+  border-top: 1px solid var(--bevel-light);
+  border-left: 1px solid var(--bevel-light);
+  border-right: 1px solid var(--bevel-dark);
+  position: relative;
+  bottom: -1px;
+}
+
+.win-tab.active {
+  background: var(--win-surface);
+  z-index: 1;
+  border-bottom: 1px solid var(--win-surface);
+}
+
+.win-tab:not(.active) {
+  background: #b4b4b4;
+  top: 2px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   HIDDEN CHARACTER VARIANTS
+═══════════════════════════════════════════════════════════ */
+.hc-bold {
+  font-weight: 800;
+}
+
+.hc-thin {
+  font-weight: 300;
+}
+
+.hc-italic {
+  font-style: italic;
+}
+
+.hc-mono {
+  font-family: 'Courier New', monospace;
+}
+
+.hc-underline {
+  text-decoration: underline;
+}
+
+.hc-smallcaps {
+  font-variant: small-caps;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   TOAST NOTIFICATION
+═══════════════════════════════════════════════════════════ */
+.win-toast {
+  position: fixed;
+  bottom: 36px;
+  right: 8px;
+  background: #ffffc0;
+  border: 1px solid #808000;
+  padding: 4px 10px;
+  font-size: 11px;
+  z-index: 30000;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+  animation: toastIn 0.1s ease-out, toastOut 0.3s ease-in 1.7s forwards;
+}
+
+@keyframes toastIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes toastOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PROGRESS BAR (generic)
+═══════════════════════════════════════════════════════════ */
+.win-progress-track {
+  height: 16px;
+  background: white;
+  box-shadow: inset 1px 1px 0 var(--bevel-dark2);
+  overflow: hidden;
+}
+
+.win-progress-fill {
+  height: 100%;
+  background: var(--win-blue);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   EVIDENCE PANEL
+═══════════════════════════════════════════════════════════ */
+.evidence-panel {
+  position: fixed;
+  right: 8px;
+  top: 8px;
+  width: 260px;
+  z-index: 9500;
+}
