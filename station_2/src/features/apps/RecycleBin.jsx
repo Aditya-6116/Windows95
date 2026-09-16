@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import MenuBar from '../../components/menus/MenuBar';
 import useOsStore from '../../store/osStore';
+import Win95Icon from '../../components/common/Win95Icon';
 
 const INITIAL_DELETED_ITEMS = [
   {
@@ -71,11 +72,12 @@ export default function RecycleBin({ winId }) {
       <div style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '3px 6px', background: '#c0c0c0', borderBottom: '1px solid #808080' }}>
         <button
           className="btn-win"
-          style={{ padding: '2px 8px' }}
+          style={{ padding: '2px 8px', display: 'inline-flex', alignItems: 'center', gap: 4 }}
           onClick={handleEmpty}
           disabled={items.length === 0}
         >
-          🗑 Empty Recycle Bin
+          <Win95Icon name="recycle-bin" size={14} />
+          <span>Empty Recycle Bin</span>
         </button>
       </div>
 
@@ -104,7 +106,12 @@ export default function RecycleBin({ winId }) {
                   onClick={() => setSelected(item.name)}
                   onDoubleClick={() => handleOpenItem(item)}
                 >
-                  <td style={{ padding: '2px 6px' }}>🗑️ {item.name}</td>
+                  <td style={{ padding: '2px 6px' }}>
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+                      <Win95Icon name={item.name} size={14} />
+                      {item.name}
+                    </span>
+                  </td>
                   <td style={{ padding: '2px 6px' }}>{item.originalLoc}</td>
                   <td style={{ padding: '2px 6px' }}>{item.dateDeleted}</td>
                   <td style={{ padding: '2px 6px' }}>{item.size}</td>

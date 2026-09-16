@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import useOsStore from '../../store/osStore';
+import Win95Icon from '../common/Win95Icon';
 
 function useClock() {
   const [time, setTime] = useState(new Date());
@@ -40,8 +41,8 @@ export default function Taskbar() {
         className={`win-start-btn ${startMenuOpen ? 'open' : ''}`}
         onClick={toggleStartMenu}
       >
-        <span style={{ fontSize: 14 }}>🪟</span>
-        <span>Start</span>
+        <Win95Icon name="windows" size={16} />
+        <span style={{ fontWeight: 'bold' }}>Start</span>
       </button>
 
       {/* Separator */}
@@ -55,20 +56,26 @@ export default function Taskbar() {
           onClick={() => handleTaskbarClick(win.id)}
           title={win.title}
         >
-          <span style={{ fontSize: 12 }}>{win.icon}</span>
-          <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: 110 }}>{win.title}</span>
+          <Win95Icon name={win.icon || win.app} size={16} />
+          <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', maxWidth: 110, marginLeft: 2 }}>{win.title}</span>
         </button>
       ))}
 
       {/* System Tray */}
       <div className="win-tray" style={{ marginLeft: 'auto' }}>
-        <span title="Network" style={{ cursor: 'default' }}>🌐</span>
-        <span title="Volume" style={{ cursor: 'default' }}>🔊</span>
+        <span title="Network" style={{ cursor: 'default', display: 'flex', alignItems: 'center' }}>
+          <Win95Icon name="network" size={14} />
+        </span>
+        <span title="Volume" style={{ cursor: 'default', display: 'flex', alignItems: 'center' }}>
+          <Win95Icon name="speaker" size={14} />
+        </span>
         <span
           title="System Log"
-          style={{ cursor: 'default' }}
-          onClick={() => openWindow({ id: 'syslog', app: 'syslog', title: 'System Access Log', icon: '📋', width: 520, height: 340 })}
-        >📋</span>
+          style={{ cursor: 'default', display: 'flex', alignItems: 'center' }}
+          onClick={() => openWindow({ id: 'syslog', app: 'syslog', title: 'System Access Log', icon: 'syslog', width: 520, height: 340 })}
+        >
+          <Win95Icon name="syslog" size={14} />
+        </span>
         <span style={{ marginLeft: 4 }}>{time}</span>
       </div>
     </div>

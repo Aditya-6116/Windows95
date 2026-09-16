@@ -1,6 +1,7 @@
 import React from 'react';
 import useOsStore from '../../store/osStore';
 import HiddenChar from '../puzzle/HiddenChar';
+import Win95Icon from '../common/Win95Icon';
 
 export default function DesktopIcon({ icon }) {
   const openWindow = useOsStore((s) => s.openWindow);
@@ -26,7 +27,7 @@ export default function DesktopIcon({ icon }) {
           id: 'mycomputer',
           app: 'explorer',
           title: 'My Computer',
-          icon: '🖥️',
+          icon: 'mycomputer',
           width: 580,
           height: 420,
           props: { path: 'root' },
@@ -37,7 +38,7 @@ export default function DesktopIcon({ icon }) {
           ...base,
           app: 'explorer',
           title: icon.label,
-          icon: icon.icon,
+          icon: icon.icon || 'folder',
           width: 580,
           height: 420,
           props: { path: icon.path || 'C:' },
@@ -48,7 +49,7 @@ export default function DesktopIcon({ icon }) {
           ...base,
           app: 'notepad',
           title: icon.label,
-          icon: '📝',
+          icon: 'notepad',
           width: 480,
           height: 340,
           props: { filePath: icon.filePath },
@@ -60,7 +61,7 @@ export default function DesktopIcon({ icon }) {
           id: 'controlpanel',
           app: 'controlpanel',
           title: 'Control Panel',
-          icon: '⚙️',
+          icon: 'controlpanel',
           width: 560,
           height: 420,
         });
@@ -70,7 +71,7 @@ export default function DesktopIcon({ icon }) {
           ...base,
           app: 'cmd',
           title: 'Command Prompt',
-          icon: '🖤',
+          icon: 'cmd',
           width: 520,
           height: 340,
         });
@@ -81,7 +82,7 @@ export default function DesktopIcon({ icon }) {
           id: 'help',
           app: 'help',
           title: 'Help',
-          icon: '❓',
+          icon: 'help',
           width: 540,
           height: 400,
         });
@@ -92,7 +93,7 @@ export default function DesktopIcon({ icon }) {
           id: 'recycle-bin',
           app: 'recycle',
           title: 'Recycle Bin',
-          icon: '🗑️',
+          icon: 'recycle-bin',
           width: 440,
           height: 320,
         });
@@ -117,7 +118,7 @@ export default function DesktopIcon({ icon }) {
             openWindow({
               app: 'notepad',
               title: `${icon.label} Properties`,
-              icon: '📄',
+              icon: 'document',
               width: 340,
               height: 240,
               props: {
@@ -141,7 +142,7 @@ export default function DesktopIcon({ icon }) {
       onDoubleClick={handleDoubleClick}
       onContextMenu={handleContextMenu}
     >
-      <span className="icon-emoji">{icon.icon}</span>
+      <Win95Icon name={icon.icon || icon.app || icon.id} size={32} />
       <span className="icon-label">
         {icon.id === 'recycle-bin' ? (
           <span>

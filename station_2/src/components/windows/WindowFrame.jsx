@@ -1,5 +1,6 @@
 import React, { useRef, useState, useCallback, useEffect } from 'react';
 import useOsStore from '../../store/osStore';
+import Win95Icon from '../common/Win95Icon';
 
 const TITLEBAR_H = 22;
 
@@ -85,8 +86,8 @@ export default function WindowFrame({ id }) {
         onMouseDown={onTitleBarMouseDown}
         onDoubleClick={() => maximizeWindow(id)}
       >
-        <span style={{ fontSize: 14 }}>{win.icon}</span>
-        <span className="win-titlebar-title">{win.title}</span>
+        <Win95Icon name={win.icon || win.app} size={14} />
+        <span className="win-titlebar-title" style={{ marginLeft: 3 }}>{win.title}</span>
         <button
           className="win-titlebar-btn"
           title="Minimize"

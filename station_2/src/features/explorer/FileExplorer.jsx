@@ -3,6 +3,7 @@ import MenuBar from '../../components/menus/MenuBar';
 import fileSystem from '../../data/fileSystem';
 import useOsStore from '../../store/osStore';
 import HiddenChar from '../../components/puzzle/HiddenChar';
+import Win95Icon from '../../components/common/Win95Icon';
 
 // Navigate a path string like 'C:/Lab/Records' through the fileSystem
 function resolvePath(pathStr) {
@@ -20,6 +21,14 @@ function resolvePath(pathStr) {
   return node;
 }
 
+function getDriveIcon(key) {
+  if (key === 'A:') return 'floppy';
+  if (key === 'C:') return 'hard-drive';
+  if (key === 'D:') return 'cdrom';
+  if (key === 'Z:') return 'network';
+  return 'hard-drive';
+}
+
 function getChildren(pathStr) {
   if (!pathStr || pathStr === 'root') {
     // Return drives
@@ -27,7 +36,7 @@ function getChildren(pathStr) {
       name: val.label || key,
       key,
       type: 'drive',
-      icon: val.icon || '💾',
+      icon: getDriveIcon(key),
     }));
   }
   const node = resolvePath(pathStr);
@@ -36,7 +45,7 @@ function getChildren(pathStr) {
     name,
     key: name,
     type: child.type || 'file',
-    icon: child.type === 'folder' ? '📁' : '📄',
+    icon: child.type === 'folder' ? 'folder' : name,
     child,
   }));
 }
@@ -273,8 +282,11 @@ export default function FileExplorer({ winId, initialPath = 'root' }) {
                   onDoubleClick={() => openItem(item)}
                   onContextMenu={(e) => handleContextMenu(e, item)}
                 >
-                  <td style={{ padding: '1px 4px' }}>
-                    {item.icon} {renderItemName(item)}
+                  <td style={{ padding: '2px 4px' }}>
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+                      <Win95Icon name={item.icon} size={16} />
+                      {renderItemName(item)}
+                    </span>
                   </td>
                   <td style={{ padding: '1px 4px' }}>{item.child?.size || (item.type === 'folder' || item.type === 'drive' ? '' : '—')}</td>
                   <td style={{ padding: '1px 4px' }}>{item.child?.modified || ''}</td>
@@ -310,7 +322,7 @@ export default function FileExplorer({ winId, initialPath = 'root' }) {
                 onDoubleClick={() => openItem(item)}
                 onContextMenu={(e) => handleContextMenu(e, item)}
               >
-                <span style={{ fontSize: 28 }}>{item.icon}</span>
+                <Win95Icon name={item.icon} size={32} />
                 <span style={{ fontSize: 10, textAlign: 'center', wordBreak: 'break-word' }}>{renderItemName(item)}</span>
               </div>
             ))}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import useOsStore from '../../store/osStore';
 import HiddenChar from '../../components/puzzle/HiddenChar';
+import Win95Icon from '../../components/common/Win95Icon';
 
 // ── Individual Panels ──────────────────────────────────────────────────
 function PanelDisplay() {
@@ -270,19 +271,19 @@ function PanelInternet() {
 
 // ── Panel Registry ─────────────────────────────────────────────────────
 const panels = [
-  { id: 'display',       label: 'Display',           icon: '📺', component: PanelDisplay },
-  { id: 'mouse',         label: 'Mouse',              icon: '🖱️', component: PanelMouse },
-  { id: 'keyboard',      label: 'Keyboard',           icon: '⌨️', component: PanelKeyboard },
-  { id: 'network',       label: 'Network',            icon: '🌐', component: PanelNetwork },
-  { id: 'sounds',        label: 'Sounds',             icon: '🔊', component: PanelSounds },
-  { id: 'system',        label: 'System',             icon: '🖥️', component: PanelSystem },
-  { id: 'users',         label: 'Users',              icon: '👥', component: PanelUsers },
-  { id: 'datetime',      label: 'Date & Time',        icon: '🕐', component: PanelDateTime },
-  { id: 'regional',      label: 'Regional Settings',  icon: '🗺️', component: PanelRegional },
-  { id: 'accessibility', label: 'Accessibility',      icon: '♿', component: PanelAccessibility },
-  { id: 'printers',      label: 'Printers',           icon: '🖨️', component: PanelPrinters },
-  { id: 'fonts',         label: 'Fonts',              icon: '🔤', component: PanelFonts },
-  { id: 'internet',      label: 'Internet Options',   icon: '🌍', component: PanelInternet },
+  { id: 'display',       label: 'Display',           icon: 'display',       component: PanelDisplay },
+  { id: 'mouse',         label: 'Mouse',              icon: 'mouse',         component: PanelMouse },
+  { id: 'keyboard',      label: 'Keyboard',           icon: 'keyboard',      component: PanelKeyboard },
+  { id: 'network',       label: 'Network',            icon: 'network',       component: PanelNetwork },
+  { id: 'sounds',        label: 'Sounds',             icon: 'speaker',       component: PanelSounds },
+  { id: 'system',        label: 'System',             icon: 'sysinfo',       component: PanelSystem },
+  { id: 'users',         label: 'Users',              icon: 'user',          component: PanelUsers },
+  { id: 'datetime',      label: 'Date & Time',        icon: 'datetime',      component: PanelDateTime },
+  { id: 'regional',      label: 'Regional Settings',  icon: 'regional',      component: PanelRegional },
+  { id: 'accessibility', label: 'Accessibility',      icon: 'accessibility', component: PanelAccessibility },
+  { id: 'printers',      label: 'Printers',           icon: 'printer',       component: PanelPrinters },
+  { id: 'fonts',         label: 'Fonts',              icon: 'fonts',         component: PanelFonts },
+  { id: 'internet',      label: 'Internet Options',   icon: 'internet',      component: PanelInternet },
 ];
 
 export default function ControlPanel({ winId, initialPanel }) {
@@ -319,7 +320,7 @@ export default function ControlPanel({ winId, initialPanel }) {
             }}
             onClick={() => selectPanel(p.id)}
           >
-            <span style={{ fontSize: 16 }}>{p.icon}</span>
+            <Win95Icon name={p.icon} size={16} />
             <span style={{ fontSize: 11 }}>{p.label}</span>
           </div>
         ))}
@@ -341,13 +342,13 @@ export default function ControlPanel({ winId, initialPanel }) {
                   key={p.id}
                   style={{
                     width: 80, display: 'flex', flexDirection: 'column', alignItems: 'center',
-                    padding: 6, cursor: 'default', gap: 2, border: '1px solid transparent',
+                    padding: 6, cursor: 'default', gap: 4, border: '1px solid transparent',
                   }}
                   className="desktop-icon"
                   onClick={() => selectPanel(p.id)}
                   onDoubleClick={() => selectPanel(p.id)}
                 >
-                  <span style={{ fontSize: 24 }}>{p.icon}</span>
+                  <Win95Icon name={p.icon} size={32} />
                   <span style={{ fontSize: 10, textAlign: 'center', color: 'black', textShadow: 'none' }}>{p.label}</span>
                 </div>
               ))}
