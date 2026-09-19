@@ -1,19 +1,16 @@
 // Hidden character configuration for Station 2
-// The discovered characters, when arranged using the physical notepad structure, spell:
-//   A-17 ENTERED.
-//   A-17 RETURNED.
-// Characters are distributed across the OS to encourage exploration.
-// styleVariant: 'bold' | 'thin' | 'italic' | 'mono' | 'underline' | 'smallcaps'
+// Target phrase to discover: "A-17 WAS HERE"
+// Characters are subtly integrated across the OS with classic typographic anomalies.
 
 const hiddenCharacters = [
-  // ── Sentence 1: A-17 ENTERED. ──────────────────────────────────────────────
+  // ── Word 1: A-17 ──────────────────────────────────────────────
   {
     id: 'clue-01',
     character: 'A',
     location: 'desktop',
-    targetElement: 'recycle-bin-tooltip',
+    targetElement: 'recycle-bin-label',
     styleVariant: 'bold',
-    hint: 'desktop icon',
+    hint: 'Desktop icon',
     discovered: false,
   },
   {
@@ -37,33 +34,55 @@ const hiddenCharacters = [
   {
     id: 'clue-04',
     character: '7',
-    location: 'network-settings',
-    targetElement: 'ip-address-label',
-    styleVariant: 'italic',
-    hint: 'Network settings',
+    location: 'command-prompt-sysinfo',
+    targetElement: 'sysinfo-network',
+    styleVariant: 'serif',
+    hint: 'Command Prompt — systeminfo network IP',
     discovered: false,
   },
+
+  // ── Word 2: WAS ──────────────────────────────────────────────
   {
     id: 'clue-05',
-    character: 'E',
-    location: 'system-info',
-    targetElement: 'os-version-label',
+    character: 'W',
+    location: 'search',
+    targetElement: 'search-header',
     styleVariant: 'bold',
-    hint: 'System Information',
+    hint: 'Search results header',
     discovered: false,
   },
   {
     id: 'clue-06',
-    character: 'N',
-    location: 'help-about',
-    targetElement: 'about-build-label',
-    styleVariant: 'thin',
-    hint: 'Help → About',
+    character: 'A',
+    location: 'system-info',
+    targetElement: 'os-edition-label',
+    styleVariant: 'smallcaps',
+    hint: 'System Information',
     discovered: false,
   },
   {
     id: 'clue-07',
-    character: 'T',
+    character: 'S',
+    location: 'control-mouse',
+    targetElement: 'pointer-speed-label',
+    styleVariant: 'underline',
+    hint: 'Control Panel → Mouse',
+    discovered: false,
+  },
+
+  // ── Word 3: HERE ─────────────────────────────────────────────
+  {
+    id: 'clue-08',
+    character: 'H',
+    location: 'help-about',
+    targetElement: 'about-computer-label',
+    styleVariant: 'mono',
+    hint: 'Help → About This Computer',
+    discovered: false,
+  },
+  {
+    id: 'clue-09',
+    character: 'E',
     location: 'file-explorer-lab',
     targetElement: 'records-folder-label',
     styleVariant: 'italic',
@@ -71,175 +90,25 @@ const hiddenCharacters = [
     discovered: false,
   },
   {
-    id: 'clue-08',
-    character: 'E',
-    location: 'control-keyboard',
-    targetElement: 'repeat-rate-label',
-    styleVariant: 'mono',
-    hint: 'Control Panel → Keyboard',
-    discovered: false,
-  },
-  {
-    id: 'clue-09',
-    character: 'R',
-    location: 'control-mouse',
-    targetElement: 'pointer-speed-label',
-    styleVariant: 'bold',
-    hint: 'Control Panel → Mouse',
-    discovered: false,
-  },
-  {
     id: 'clue-10',
-    character: 'E',
-    location: 'command-prompt',
+    character: 'R',
+    location: 'command-prompt-ver',
     targetElement: 'ver-output',
-    styleVariant: 'mono',
+    styleVariant: 'serif',
     hint: 'Command Prompt — ver command',
     discovered: false,
   },
   {
     id: 'clue-11',
-    character: 'D',
-    location: 'security-users',
-    targetElement: 'a17-access-label',
-    styleVariant: 'underline',
-    hint: 'Security → User Accounts',
-    discovered: false,
-  },
-  {
-    id: 'clue-12',
-    character: '.',
-    location: 'control-fonts',
-    targetElement: 'font-sample-label',
-    styleVariant: 'thin',
-    hint: 'Control Panel → Fonts',
-    discovered: false,
-  },
-
-  // ── Sentence 2: A-17 RETURNED. ────────────────────────────────────────────
-  {
-    id: 'clue-13',
-    character: 'A',
-    location: 'control-regional',
-    targetElement: 'locale-label',
-    styleVariant: 'bold',
-    hint: 'Control Panel → Regional Settings',
-    discovered: false,
-  },
-  {
-    id: 'clue-14',
-    character: '-',
-    location: 'search-results',
-    targetElement: 'search-result-desc',
-    styleVariant: 'italic',
-    hint: 'Search results page',
-    discovered: false,
-  },
-  {
-    id: 'clue-15',
-    character: '1',
-    location: 'control-sounds',
-    targetElement: 'scheme-label',
-    styleVariant: 'mono',
-    hint: 'Control Panel → Sounds',
-    discovered: false,
-  },
-  {
-    id: 'clue-16',
-    character: '7',
-    location: 'control-datetime',
-    targetElement: 'timezone-label',
-    styleVariant: 'thin',
-    hint: 'Control Panel → Date & Time',
-    discovered: false,
-  },
-  {
-    id: 'clue-17',
-    character: 'R',
-    location: 'file-explorer-documents',
-    targetElement: 'report-file-label',
-    styleVariant: 'bold',
-    hint: 'C:\\Documents',
-    discovered: false,
-  },
-  {
-    id: 'clue-18',
     character: 'E',
-    location: 'control-display',
-    targetElement: 'color-depth-label',
-    styleVariant: 'underline',
-    hint: 'Control Panel → Display',
-    discovered: false,
-  },
-  {
-    id: 'clue-19',
-    character: 'T',
-    location: 'help-troubleshooting',
-    targetElement: 'troubleshoot-step-label',
-    styleVariant: 'italic',
-    hint: 'Help → Troubleshooting',
-    discovered: false,
-  },
-  {
-    id: 'clue-20',
-    character: 'U',
-    location: 'control-internet',
-    targetElement: 'homepage-label',
-    styleVariant: 'mono',
-    hint: 'Control Panel → Internet Options',
-    discovered: false,
-  },
-  {
-    id: 'clue-21',
-    character: 'R',
-    location: 'system-info',
-    targetElement: 'processor-label',
-    styleVariant: 'thin',
-    hint: 'System Information (processor)',
-    discovered: false,
-  },
-  {
-    id: 'clue-22',
-    character: 'N',
-    location: 'network-advanced',
-    targetElement: 'gateway-label',
-    styleVariant: 'bold',
-    hint: 'Network → Advanced',
-    discovered: false,
-  },
-  {
-    id: 'clue-23',
-    character: 'E',
-    location: 'control-accessibility',
-    targetElement: 'sticky-keys-label',
-    styleVariant: 'underline',
-    hint: 'Control Panel → Accessibility',
-    discovered: false,
-  },
-  {
-    id: 'clue-24',
-    character: 'D',
-    location: 'command-prompt',
-    targetElement: 'systeminfo-output',
-    styleVariant: 'mono',
-    hint: 'Command Prompt — systeminfo',
-    discovered: false,
-  },
-  {
-    id: 'clue-25',
-    character: '.',
-    location: 'control-printers',
-    targetElement: 'printer-status-label',
-    styleVariant: 'italic',
-    hint: 'Control Panel → Printers',
+    location: 'command-prompt-help',
+    targetElement: 'help-output',
+    styleVariant: 'sans',
+    hint: 'Command Prompt — help command',
     discovered: false,
   },
 ];
 
-export default hiddenCharacters;
+export const TARGET_PHRASE = 'A-17 WAS HERE';
 
-// Sentence structure for reference (used by physical notepad)
-// Sentence 1: A - 1 7   E N T E R E D .
-// clue ids:   01 02 03 04 05 06 07 08 09 10 11 12
-// Sentence 2: A - 1 7   R E T U R N E D .
-// clue ids:   13 14 15 16 17 18 19 20 21 22 23 24 25
+export default hiddenCharacters;

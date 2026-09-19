@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import MenuBar from '../../components/menus/MenuBar';
 import fileSystem from '../../data/fileSystem';
 import HiddenChar from '../../components/puzzle/HiddenChar';
+import Win95Icon from '../../components/common/Win95Icon';
 
 // Default clue content for new Notepad
-const DEFAULT_NOTEPAD = `A-17 ________.\n\nA-17 ________.`;
+const DEFAULT_NOTEPAD = `A-17 ________.\n\n[Station 2 Case File Notes]`;
 
 function resolveContent(filePath, content) {
   if (content !== undefined) return content;
@@ -31,7 +32,7 @@ export default function Notepad({ winId, filePath, panel, content: propContent, 
     return (
       <div style={{ display: 'flex', flexDirection: 'column', height: '100%', fontSize: 11, background: '#c0c0c0', padding: 10, gap: 10 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, borderBottom: '1px solid #808080', paddingBottom: 8 }}>
-          <span style={{ fontSize: 32 }}>📄</span>
+          <Win95Icon name="notepad" size={32} />
           <div>
             <strong>README.TXT</strong>
             <div style={{ color: '#505050', fontSize: 10 }}>Laboratory Record & Orientation Document</div>

@@ -169,14 +169,7 @@ export default function FileExplorer({ winId, initialPath = 'root' }) {
     if (item.name === 'Records' && path.includes('Lab')) {
       return (
         <span>
-          Records <HiddenChar clueId="clue-07" fallbackChar="T" />
-        </span>
-      );
-    }
-    if (item.name === 'REPORT_NOV.TXT' && path.includes('Documents')) {
-      return (
-        <span>
-          <HiddenChar clueId="clue-17" fallbackChar="R" />EPORT_NOV.TXT
+          Records (<HiddenChar clueId="clue-09" fallbackChar="E" />)
         </span>
       );
     }

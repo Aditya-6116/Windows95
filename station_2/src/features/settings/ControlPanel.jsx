@@ -11,10 +11,10 @@ function PanelDisplay() {
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
         <div className="win-raised" style={{ padding: 8 }}>
           <p style={{ marginBottom: 4 }}>Screen Resolution</p>
-          <HiddenChar clueId="clue-03" before="1024 × 7" after="8" />
+          <HiddenChar clueId="clue-03" before="1024 × 7" fallbackChar="1" after="8" />
           <br /><br />
           <p style={{ marginBottom: 4 }}>Color Depth</p>
-          <HiddenChar clueId="clue-18" before="High Color (16-bit) — " after=" planes" />
+          <p>High Color (16-bit) — 65536 colors</p>
         </div>
         <div className="win-raised" style={{ padding: 8 }}>
           <p style={{ marginBottom: 4 }}>Refresh Rate</p>
@@ -44,7 +44,7 @@ function PanelMouse() {
       </div>
       <div className="win-raised" style={{ padding: 8 }}>
         <p style={{ marginBottom: 4 }}>Pointer Speed</p>
-        <HiddenChar clueId="clue-09" before="Slow ←——— " after=" ———→ Fast" />
+        <HiddenChar clueId="clue-07" before="Slow ←——— " fallbackChar="S" after=" ———→ Fast" />
         <br /><br />
         <p style={{ marginBottom: 4 }}>Double-click Speed</p>
         <p>Medium</p>
@@ -63,7 +63,7 @@ function PanelKeyboard() {
       <div className="win-raised" style={{ padding: 8, marginBottom: 8 }}>
         <p style={{ marginBottom: 4 }}>Character Repeat</p>
         <p style={{ marginBottom: 2 }}>Repeat Delay: Short</p>
-        <HiddenChar clueId="clue-08" before="Repeat Rate: Slow ←— " after=" —→ Fast" />
+        <p>Repeat Rate: Slow ←—————→ Fast</p>
       </div>
       <div className="win-raised" style={{ padding: 8 }}>
         <p style={{ marginBottom: 4 }}>Cursor Blink Rate</p>
@@ -85,13 +85,13 @@ function PanelNetwork() {
         <p>Status: Connected</p>
         <br />
         <p>Ethernet Adapter</p>
-        <HiddenChar clueId="clue-04" before="IP Address: 192.168.10.2" after="" />
+        <p>IP Address: 192.168.10.7</p>
         <br />
         <p style={{ marginTop: 4 }}>Subnet Mask: 255.255.255.0</p>
       </div>
       <div className="win-raised" style={{ padding: 8, marginBottom: 8 }}>
         <p style={{ fontWeight: 'bold', marginBottom: 2 }}>Advanced</p>
-        <HiddenChar clueId="clue-22" before="Gateway: 192.168.10." after="" />
+        <p>Gateway: 192.168.10.1</p>
         <br />
         <p style={{ marginTop: 2 }}>DNS: 192.168.10.2</p>
       </div>
@@ -136,7 +136,7 @@ function PanelUsers() {
         </div>
       ))}
       <p style={{ marginTop: 4, color: '#808080', fontSize: 10 }}>A-17 — access identifier. Contact system administrator.</p>
-      <HiddenChar clueId="clue-11" before="Access Level: Privilege" after=" (restricted)" />
+      <p>Access Level: Privileged (restricted)</p>
     </div>
   );
 }
@@ -147,7 +147,7 @@ function PanelSounds() {
       <h3 style={{ fontWeight: 'bold', marginBottom: 8 }}>Sounds and Multimedia</h3>
       <div className="win-raised" style={{ padding: 8, marginBottom: 8 }}>
         <p>Sound Scheme:</p>
-        <HiddenChar clueId="clue-15" before="Lab Default v" after=".0" />
+        <p>Lab Default v1.0</p>
       </div>
       <div className="win-raised" style={{ padding: 8 }}>
         <p style={{ marginBottom: 4 }}>Events:</p>
@@ -169,7 +169,7 @@ function PanelDateTime() {
       </div>
       <div className="win-raised" style={{ padding: 8 }}>
         <p>Time Zone:</p>
-        <HiddenChar clueId="clue-16" before="(GMT+5:30) India Standard Time — UTC offset: +" after="" />
+        <p>(GMT+5:30) India Standard Time — UTC offset: +5:30</p>
       </div>
     </div>
   );
@@ -181,7 +181,7 @@ function PanelRegional() {
       <h3 style={{ fontWeight: 'bold', marginBottom: 8 }}>Regional Settings</h3>
       <div className="win-raised" style={{ padding: 8, marginBottom: 8 }}>
         <p>Locale:</p>
-        <HiddenChar clueId="clue-13" before="English (Indi" after=") — en-IN" />
+        <p>English (India) — en-IN</p>
       </div>
       <div className="win-raised" style={{ padding: 8 }}>
         <p>Number Format: 1,234.56</p>
@@ -201,7 +201,7 @@ function PanelAccessibility() {
         <p style={{ marginBottom: 4 }}>Keyboard</p>
         <label style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
           <input type="checkbox" />
-          <HiddenChar clueId="clue-23" before="Sticky K" after="ys — Press modifier keys one at a time" />
+          StickyKeys — Press modifier keys one at a time
         </label>
         <label style={{ display: 'flex', alignItems: 'center', gap: 4, marginTop: 4 }}>
           <input type="checkbox" />
@@ -222,7 +222,7 @@ function PanelPrinters() {
       <h3 style={{ fontWeight: 'bold', marginBottom: 8 }}>Printers</h3>
       <div className="win-raised" style={{ padding: 8, marginBottom: 8 }}>
         <p style={{ fontWeight: 'bold' }}>🖨️ HP LaserJet 1200</p>
-        <HiddenChar clueId="clue-25" before="Status: Ready" after="" />
+        <p>Status: Ready</p>
         <br />
         <p>Port: LPT1</p>
         <p>Default: Yes</p>
@@ -242,7 +242,7 @@ function PanelFonts() {
       </div>
       <div className="win-raised" style={{ padding: 8 }}>
         <p>Sample:</p>
-        <HiddenChar clueId="clue-12" before="The quick brown fox jumps over the lazy dog" after="" />
+        <p>The quick brown fox jumps over the lazy dog</p>
       </div>
     </div>
   );
@@ -254,7 +254,7 @@ function PanelInternet() {
       <h3 style={{ fontWeight: 'bold', marginBottom: 8 }}>Internet Options</h3>
       <div className="win-raised" style={{ padding: 8, marginBottom: 8 }}>
         <p>Home Page:</p>
-        <HiddenChar clueId="clue-20" before="about:blank (R" after="L: not configured)" />
+        <p>about:blank (URL: not configured)</p>
       </div>
       <div className="win-raised" style={{ padding: 8, marginBottom: 8 }}>
         <p>Temporary Internet Files</p>

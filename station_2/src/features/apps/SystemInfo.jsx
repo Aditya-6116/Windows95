@@ -37,7 +37,7 @@ export default function SystemInfo({ winId }) {
               <fieldset style={{ border: '1px solid #808080', padding: 8 }}>
                 <legend style={{ padding: '0 4px', color: '#000080', fontWeight: 'bold' }}>System</legend>
                 <div>
-                  Varma Laboratory OS 4.7 <HiddenChar id="clue-05" fallbackChar="E" />dition
+                  Varma Laboratory OS 4.7 <HiddenChar clueId="clue-06" fallbackChar="A" />dvanced Edition
                 </div>
                 <div style={{ color: '#404040', marginTop: 2 }}>Build 1998.1104-Release</div>
                 <div style={{ color: '#404040' }}>Copyright © 1994-1998 Varma Laboratories</div>
@@ -53,9 +53,7 @@ export default function SystemInfo({ winId }) {
               <fieldset style={{ border: '1px solid #808080', padding: 8 }}>
                 <legend style={{ padding: '0 4px', color: '#000080', fontWeight: 'bold' }}>Computer</legend>
                 <div>VARMA-LAB-PC</div>
-                <div>
-                  P<HiddenChar id="clue-21" fallbackChar="R" />ocessor: Pentium-class CPU @ 450 MHz
-                </div>
+                <div>Processor: Pentium-class CPU @ 450 MHz</div>
                 <div>128.0 MB RAM</div>
               </fieldset>
             </div>

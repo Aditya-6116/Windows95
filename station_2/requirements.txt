@@ -1,0 +1,22 @@
+# Station 2 - Windows 95 Mock OS Game System Requirements & Dependencies
+
+# Runtime Environment Requirements
+node>=18.0.0
+npm>=9.0.0
+
+# Core Framework & State Management
+react>=19.0.0
+react-dom>=19.0.0
+zustand>=5.0.15
+
+# Build Tooling & Bundlers
+vite>=8.3.0
+@vitejs/plugin-react>=6.1.1
+
+# Styling & CSS Processing
+tailwindcss>=3.4.19
+postcss>=8.5.28
+autoprefixer>=10.6.1
+
+# Code Quality & Linting
+oxlint>=1.81.0

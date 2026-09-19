@@ -57,9 +57,7 @@ const topics = [
         <h2 style={{ fontWeight: 'bold', marginBottom: 8 }}>Troubleshooting</h2>
         <p>Follow these steps to diagnose common problems:</p>
         <ol style={{ marginLeft: 16, marginTop: 8 }}>
-          <li style={{ marginBottom: 4 }}>
-            <HiddenChar clueId="clue-19" before="Restar" after=" the computer and try again." />
-          </li>
+          <li style={{ marginBottom: 4 }}>Restart the computer and try again.</li>
           <li style={{ marginBottom: 4 }}>Check all cables and connections.</li>
           <li style={{ marginBottom: 4 }}>Run Disk Cleanup to free space.</li>
           <li style={{ marginBottom: 4 }}>Check the Event Log for errors.</li>
@@ -76,10 +74,9 @@ const topics = [
       <div style={{ padding: 12, fontSize: 11 }}>
         <h2 style={{ fontWeight: 'bold', marginBottom: 8 }}>About This Computer</h2>
         <div style={{ display: 'grid', gridTemplateColumns: '140px 1fr', rowGap: 4 }}>
-          <span style={{ color: '#404040' }}>Computer:</span>      <span>VARMA-LAB-PC</span>
+          <span style={{ color: '#404040' }}><HiddenChar clueId="clue-08" fallbackChar="H" before="" after="ost Computer:" /></span> <span>VARMA-LAB-PC</span>
           <span style={{ color: '#404040' }}>OS:</span>            <span>VarmaOS 4.7</span>
-          <span style={{ color: '#404040' }}>Build:</span>
-          <span><HiddenChar clueId="clue-06" before="447" after="-1998" /></span>
+          <span style={{ color: '#404040' }}>Build:</span>         <span>447-1998</span>
           <span style={{ color: '#404040' }}>Owner:</span>         <span>D. Varma</span>
           <span style={{ color: '#404040' }}>Organisation:</span>  <span>Applied Research Division</span>
           <span style={{ color: '#404040' }}>Serial:</span>        <span>ARD-1998-0042</span>

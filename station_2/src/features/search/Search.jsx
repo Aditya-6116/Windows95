@@ -76,7 +76,7 @@ export default function Search({ winId }) {
           <button className="btn-win" onClick={runSearch} style={{ minWidth: 60 }}>Search</button>
         </div>
         <p style={{ marginTop: 4, color: '#404040', fontSize: 10 }}>
-          <HiddenChar clueId="clue-14" before="Results for your quer" after=" appear below." />
+          <HiddenChar clueId="clue-05" before="Results for your " fallbackChar="W" after="orking search appear below." />
         </p>
       </div>
 

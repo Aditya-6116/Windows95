@@ -39,32 +39,46 @@ const COMMANDS = {
   exit: () => '__EXIT__',
 };
 
-// ver output has a hidden character embedded
 function VerOutput() {
   return (
     <div>
       <p>VarmaOS [Version 4.7.1998]</p>
       <p>
-        Copyright (C) 1998 Varma Laboratory. All rights reserved.
-        <HiddenChar clueId="clue-10" before=" Build 447" after="" />
+        Copyright (C) 1998 Varma Laboratory. All <HiddenChar clueId="clue-10" fallbackChar="R" before="" after="ights reserved. [Release 1998]" />
       </p>
     </div>
   );
 }
 
-// systeminfo output has a hidden character embedded
+// systeminfo output has a hidden character embedded (clue-04: '7')
 function SysinfoOutput() {
   return (
     <div>
       <p>Computer Name:    VARMA-LAB-PC</p>
       <p>OS:               VarmaOS 4.7</p>
       <p>Registered User:  D. Varma</p>
-      <p>
-        <HiddenChar clueId="clue-24" before="Processor:        Pentium-class CPU — Spee" after=": 233 MHz" />
-      </p>
+      <p>Processor:        Pentium-class CPU — Speed: 233 MHz</p>
       <p>Memory:           128 MB</p>
-      <p>Network:          LAB-NET (Connected)</p>
+      <p>Network:          LAB-NET (192.168.10.<HiddenChar clueId="clue-04" fallbackChar="7" />)</p>
       <p>Uptime:           2 hours, 14 minutes</p>
+    </div>
+  );
+}
+
+// help output has a hidden character embedded (clue-11: 'E')
+function HelpOutput() {
+  return (
+    <div>
+      <p>Available commands:</p>
+      <p>  help         — Show this list</p>
+      <p>  dir          — List current directory</p>
+      <p>  cd &lt;path&gt;    — Change directory</p>
+      <p>  cls          — Clear screen</p>
+      <p>  ver          — Show OS v<HiddenChar clueId="clue-11" fallbackChar="E" />rsion</p>
+      <p>  date         — Show current date</p>
+      <p>  time         — Show current time</p>
+      <p>  systeminfo   — Show system information</p>
+      <p>  exit         — Close command prompt</p>
     </div>
   );
 }
@@ -110,6 +124,8 @@ export default function CommandPrompt({ winId }) {
       special = 'ver';
     } else if (cmd === 'systeminfo') {
       special = 'systeminfo';
+    } else if (cmd === 'help') {
+      special = 'help';
     } else if (cmd === 'cd') {
       output = cdCommand(args[0]);
     } else if (COMMANDS[cmd]) {
@@ -124,7 +140,13 @@ export default function CommandPrompt({ winId }) {
     setLines(prev => [
       ...prev.slice(0, -1), // remove trailing prompt
       { type: 'text', content: `${PROMPT} ${trimmed}` },
-      special === 'ver' ? { type: 'ver' } : special === 'systeminfo' ? { type: 'sysinfo' } : { type: 'text', content: output },
+      special === 'ver'
+        ? { type: 'ver' }
+        : special === 'systeminfo'
+        ? { type: 'sysinfo' }
+        : special === 'help'
+        ? { type: 'help' }
+        : { type: 'text', content: output },
       { type: 'text', content: '' },
       { type: 'text', content: `${PROMPT}` },
     ]);
@@ -155,7 +177,15 @@ export default function CommandPrompt({ winId }) {
       <div style={{ flex: 1 }}>
         {lines.map((line, i) => (
           <div key={i}>
-            {line.type === 'ver' ? <VerOutput /> : line.type === 'sysinfo' ? <SysinfoOutput /> : <pre style={{ margin: 0, whiteSpace: 'pre-wrap', fontFamily: 'inherit', color: '#c0c0c0' }}>{line.content}</pre>}
+            {line.type === 'ver' ? (
+              <VerOutput />
+            ) : line.type === 'sysinfo' ? (
+              <SysinfoOutput />
+            ) : line.type === 'help' ? (
+              <HelpOutput />
+            ) : (
+              <pre style={{ margin: 0, whiteSpace: 'pre-wrap', fontFamily: 'inherit', color: '#c0c0c0' }}>{line.content}</pre>
+            )}
           </div>
         ))}
         {/* Input line */}

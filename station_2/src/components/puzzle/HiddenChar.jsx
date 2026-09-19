@@ -8,10 +8,13 @@ const styleMap = {
   mono: 'hc-mono',
   underline: 'hc-underline',
   smallcaps: 'hc-smallcaps',
+  serif: 'hc-serif',
+  sans: 'hc-sans',
+  altfont: 'hc-altfont',
 };
 
 /**
- * Renders a hidden character embedded in a text string.
+ * Renders a hidden character subtly embedded in a text string.
  * Props:
  *   clueId | id: string — the id of the clue to render
  *   before: string — text before the hidden char
@@ -65,7 +68,6 @@ export default function HiddenChar({
         className={styleMap[clue.styleVariant] || ''}
         style={{
           cursor: 'pointer',
-          transition: 'color 0.2s',
           display: 'inline-block',
         }}
         onClick={handleClick}

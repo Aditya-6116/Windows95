@@ -589,29 +589,15 @@ select.win-select {
 /* ═══════════════════════════════════════════════════════════
    HIDDEN CHARACTER VARIANTS
 ═══════════════════════════════════════════════════════════ */
-.hc-bold {
-  font-weight: 800;
-}
-
-.hc-thin {
-  font-weight: 300;
-}
-
-.hc-italic {
-  font-style: italic;
-}
-
-.hc-mono {
-  font-family: 'Courier New', monospace;
-}
-
-.hc-underline {
-  text-decoration: underline;
-}
-
-.hc-smallcaps {
-  font-variant: small-caps;
-}
+.hc-bold      { font-weight: 800; }
+.hc-thin      { font-weight: 300; }
+.hc-italic    { font-style: italic; }
+.hc-mono      { font-family: 'Courier New', monospace; }
+.hc-underline { text-decoration: underline; }
+.hc-smallcaps { font-variant: small-caps; }
+.hc-serif     { font-family: 'Times New Roman', Georgia, serif; font-weight: normal; }
+.hc-sans      { font-family: Arial, Helvetica, sans-serif; font-weight: normal; }
+.hc-altfont   { font-family: 'Times New Roman', Georgia, serif; font-weight: normal; }
 
 /* ═══════════════════════════════════════════════════════════
    TOAST NOTIFICATION
