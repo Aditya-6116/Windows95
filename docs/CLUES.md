@@ -8,7 +8,7 @@
 ## Overview
 Across the vintage Windows 95 interface of Dr. Varma's computer, 11 hidden characters are embedded within system text, file labels, dialogs, command outputs, and application headers.
 
-Players discover characters by noticing subtle typographic anomalies (such as font changes, thin/bold text, monospace, italic, or underlines) and clicking on them. Discovered characters are automatically logged in the on-screen **Evidence Collected** dossier.
+Players discover characters by noticing subtle typographic anomalies (such as italic, bold, thin, monospace, or underlines) and clicking on them. Discovered characters are automatically logged in the on-screen **Evidence Collected** dossier.
 
 ---
 
@@ -19,14 +19,14 @@ Players discover characters by noticing subtle typographic anomalies (such as fo
 | **1** | `clue-01` | **`A`** | **Desktop** | Recycle Bin Icon Label | **Bold** (`hc-bold`) | Visible directly on the Desktop below the Recycle Bin icon label: `Recycle Bin (A)`. |
 | **2** | `clue-02` | **`-`** | **Notepad** | `README.TXT` Properties Dialog | **Thin** (`hc-thin`) | Open `README.TXT` on the Desktop or via File Explorer, then open **Help → About** or File Properties dialog (`Type: Text Document - Plain text`). |
 | **3** | `clue-03` | **`1`** | **Control Panel** | Display Settings | **Monospace** (`hc-mono`) | Open **Start → Settings → Control Panel → Display**. Look at the screen resolution label (`1024 × 718`). |
-| **4** | `clue-04` | **`7`** | **Command Prompt** | `systeminfo` command output | **Serif Font** (`hc-serif` — Times New Roman/Georgia) | Open **Command Prompt** (MS-DOS Prompt) and run `systeminfo`. Inspect the IP under `Network: LAB-NET (192.168.10.7)`. |
+| **4** | `clue-04` | **`7`** | **Command Prompt** | `systeminfo` command output | **Italic** (`hc-italic`) | Open **Command Prompt** (MS-DOS Prompt) and run `systeminfo`. Inspect the IP under `Network: LAB-NET (192.168.10.7)`. |
 | **5** | `clue-05` | **`W`** | **Search Tool** | Search Results Header | **Bold** (`hc-bold`) | Open **Start → Find → Files or Folders**, enter any query or look at the header: `Results for your Working search appear below.`. |
 | **6** | `clue-06` | **`A`** | **System Info App** | System Tab Edition Label | **Small-Caps** (`hc-smallcaps`) | Open **Start → Programs → System Information** (or System icon). Look under the System field: `Varma Laboratory OS 4.7 Advanced Edition`. |
 | **7** | `clue-07` | **`S`** | **Control Panel** | Mouse Settings | **Underline** (`hc-underline`) | Open **Start → Settings → Control Panel → Mouse**. Inspect the pointer speed slider scale: `Slow ←——— S ———→ Fast`. |
 | **8** | `clue-08` | **`H`** | **Help Topics** | About This Computer | **Monospace** (`hc-mono`) | Open **Start → Help → ℹ️ About This Computer**. Inspect the `Host Computer:` label. |
 | **9** | `clue-09` | **`E`** | **File Explorer** | `C:\Lab\Records` Directory | **Italic** (`hc-italic`) | Open **My Computer → C:\ → Lab**. Look at the `Records (E)` folder item. |
-| **10** | `clue-10` | **`R`** | **Command Prompt** | `ver` command output | **Serif Font** (`hc-serif` — Times New Roman/Georgia) | Open **Command Prompt** and type `ver`. Inspect the copyright line: `All Rights reserved. [Release 1998]`. |
-| **11** | `clue-11` | **`E`** | **Command Prompt** | `help` command output | **Sans-Serif Font** (`hc-sans` — Arial/Helvetica) | Open **Command Prompt** and type `help`. Inspect the command listing for `ver — Show OS version`. |
+| **10** | `clue-10` | **`R`** | **Command Prompt** | `ver` command output | **Italic** (`hc-italic`) | Open **Command Prompt** and type `ver`. Inspect the copyright line: `All Rights reserved. [Release 1998]`. |
+| **11** | `clue-11` | **`E`** | **Command Prompt** | `help` command output | **Italic** (`hc-italic`) | Open **Command Prompt** and type `help`. Inspect the command listing for `ver — Show OS version`. |
 
 ---
 
@@ -54,15 +54,15 @@ Players discover characters by noticing subtle typographic anomalies (such as fo
 - **Character**: `7` (`clue-04`)
   - **Command**: `systeminfo`
   - **Line**: `Network: LAB-NET (192.168.10.7)`
-  - **Appearance**: Distinct serif typography (`Times New Roman` contrasting with terminal monospace)
+  - **Appearance**: Subtle italic `7` in the terminal output
 - **Character**: `R` (`clue-10`)
   - **Command**: `ver`
   - **Line**: `All Rights reserved. [Release 1998]`
-  - **Appearance**: Serif font `R` in `Rights`
+  - **Appearance**: Subtle italic `R` in `Rights`
 - **Character**: `E` (`clue-11`)
   - **Command**: `help`
   - **Line**: `ver — Show OS version`
-  - **Appearance**: Clean sans-serif glyph `E` in `version`
+  - **Appearance**: Subtle italic `E` in `version`
 
 ### 5. Search / Find Application
 - **Character**: `W` (`clue-05`)
