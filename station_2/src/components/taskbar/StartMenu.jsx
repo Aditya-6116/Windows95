@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import useOsStore from '../../store/osStore';
 import Win95Icon from '../common/Win95Icon';
+import HiddenChar from '../puzzle/HiddenChar';
 
 const menuItems = [
   {
@@ -8,7 +9,7 @@ const menuItems = [
     icon: 'folder',
     hasSubmenu: true,
     submenu: [
-      { label: 'Notepad', icon: 'notepad', app: 'notepad', title: 'Notepad', width: 480, height: 340 },
+      { label: <span>Notepad (<HiddenChar clueId="clue-04" fallbackChar="7" />)</span>, icon: 'notepad', app: 'notepad', title: 'Notepad', width: 480, height: 340 },
       { label: 'Calculator', icon: 'calculator', app: 'calculator', title: 'Calculator', width: 230, height: 290 },
       { label: 'Paint', icon: 'paint', app: 'paint', title: 'Paint', width: 580, height: 440 },
       { label: 'Character Map', icon: 'charmap', app: 'charmap', title: 'Character Map', width: 440, height: 340 },
@@ -18,7 +19,7 @@ const menuItems = [
     ],
   },
   {
-    label: 'Documents',
+    label: <span>Documents (<HiddenChar clueId="clue-03" fallbackChar="1" />)</span>,
     icon: 'folder',
     hasSubmenu: true,
     submenu: [
@@ -28,17 +29,17 @@ const menuItems = [
     ],
   },
   {
-    label: 'Settings',
+    label: <span><HiddenChar clueId="clue-07" fallbackChar="S" before="" after="ettings" /></span>,
     icon: 'controlpanel',
     hasSubmenu: true,
     submenu: [
-      { label: 'Control Panel', icon: 'controlpanel', app: 'controlpanel', id: 'controlpanel', title: 'Control Panel', width: 560, height: 420 },
+      { label: <span>Control Panel (<HiddenChar clueId="clue-06" fallbackChar="A" />)</span>, icon: 'controlpanel', app: 'controlpanel', id: 'controlpanel', title: 'Control Panel', width: 560, height: 420 },
       { label: 'Display', icon: 'display', app: 'controlpanel', title: 'Display Properties', width: 400, height: 340, props: { panel: 'display' } },
       { label: 'Network', icon: 'network', app: 'controlpanel', title: 'Network', width: 400, height: 340, props: { panel: 'network' } },
     ],
   },
-  { label: 'Search', icon: 'search', app: 'search', id: 'search', title: 'Search', width: 440, height: 360 },
-  { label: 'Help', icon: 'help', app: 'help', id: 'help', title: 'Help', width: 540, height: 400 },
+  { label: <span>Search (<HiddenChar clueId="clue-05" fallbackChar="W" />)</span>, icon: 'search', app: 'search', id: 'search', title: 'Search', width: 440, height: 360 },
+  { label: <span><HiddenChar clueId="clue-08" fallbackChar="H" before="" after="elp Topics" /></span>, icon: 'help', app: 'help', id: 'help', title: 'Help', width: 540, height: 400 },
   { label: 'Run...', icon: 'run', app: null },
   { separator: true },
   { label: 'Log Off...', icon: 'logoff', app: null },

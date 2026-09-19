@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import useOsStore from '../../store/osStore';
-import HiddenChar from '../../components/puzzle/HiddenChar';
 import Win95Icon from '../../components/common/Win95Icon';
 
 // ── Individual Panels ──────────────────────────────────────────────────
@@ -11,8 +10,8 @@ function PanelDisplay() {
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
         <div className="win-raised" style={{ padding: 8 }}>
           <p style={{ marginBottom: 4 }}>Screen Resolution</p>
-          <HiddenChar clueId="clue-03" before="1024 × 7" fallbackChar="1" after="8" />
-          <br /><br />
+          <p>1024 × 768</p>
+          <br />
           <p style={{ marginBottom: 4 }}>Color Depth</p>
           <p>High Color (16-bit) — 65536 colors</p>
         </div>
@@ -44,8 +43,8 @@ function PanelMouse() {
       </div>
       <div className="win-raised" style={{ padding: 8 }}>
         <p style={{ marginBottom: 4 }}>Pointer Speed</p>
-        <HiddenChar clueId="clue-07" before="Slow ←——— " fallbackChar="S" after=" ———→ Fast" />
-        <br /><br />
+        <p>Slow ←——— | ———→ Fast</p>
+        <br />
         <p style={{ marginBottom: 4 }}>Double-click Speed</p>
         <p>Medium</p>
       </div>

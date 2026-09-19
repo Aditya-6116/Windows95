@@ -108,7 +108,7 @@ export default function Notepad({ winId, filePath, panel, content: propContent, 
       items: [{ label: 'Status Bar', disabled: true }],
     },
     {
-      label: 'Help',
+      label: <span>Help (<HiddenChar clueId="clue-10" fallbackChar="R" />)</span>,
       items: [{ label: 'Help Topics', disabled: true }, { separator: true }, { label: 'About Notepad', disabled: true }],
     },
   ];

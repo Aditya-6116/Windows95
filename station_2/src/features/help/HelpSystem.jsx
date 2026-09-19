@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import HiddenChar from '../../components/puzzle/HiddenChar';
 
 const topics = [
   {
@@ -74,7 +73,7 @@ const topics = [
       <div style={{ padding: 12, fontSize: 11 }}>
         <h2 style={{ fontWeight: 'bold', marginBottom: 8 }}>About This Computer</h2>
         <div style={{ display: 'grid', gridTemplateColumns: '140px 1fr', rowGap: 4 }}>
-          <span style={{ color: '#404040' }}><HiddenChar clueId="clue-08" fallbackChar="H" before="" after="ost Computer:" /></span> <span>VARMA-LAB-PC</span>
+          <span style={{ color: '#404040' }}>Host Computer:</span> <span>VARMA-LAB-PC</span>
           <span style={{ color: '#404040' }}>OS:</span>            <span>VarmaOS 4.7</span>
           <span style={{ color: '#404040' }}>Build:</span>         <span>447-1998</span>
           <span style={{ color: '#404040' }}>Owner:</span>         <span>D. Varma</span>

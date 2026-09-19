@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import HiddenChar from '../../components/puzzle/HiddenChar';
 import useOsStore from '../../store/osStore';
 import Win95Icon from '../../components/common/Win95Icon';
 
@@ -76,7 +75,7 @@ export default function Search({ winId }) {
           <button className="btn-win" onClick={runSearch} style={{ minWidth: 60 }}>Search</button>
         </div>
         <p style={{ marginTop: 4, color: '#404040', fontSize: 10 }}>
-          <HiddenChar clueId="clue-05" before="Results for your " fallbackChar="W" after="orking search appear below." />
+          Results matching your query will appear below.
         </p>
       </div>
 

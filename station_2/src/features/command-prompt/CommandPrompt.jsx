@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-import HiddenChar from '../../components/puzzle/HiddenChar';
 
 const PROMPT = 'C:\\LAB>';
 
@@ -43,14 +42,11 @@ function VerOutput() {
   return (
     <div>
       <p>VarmaOS [Version 4.7.1998]</p>
-      <p>
-        Copyright (C) 1998 Varma Laboratory. All <HiddenChar clueId="clue-10" fallbackChar="R" before="" after="ights reserved. [Release 1998]" />
-      </p>
+      <p>Copyright (C) 1998 Varma Laboratory. All rights reserved. [Release 1998]</p>
     </div>
   );
 }
 
-// systeminfo output has a hidden character embedded (clue-04: '7')
 function SysinfoOutput() {
   return (
     <div>
@@ -59,13 +55,12 @@ function SysinfoOutput() {
       <p>Registered User:  D. Varma</p>
       <p>Processor:        Pentium-class CPU — Speed: 233 MHz</p>
       <p>Memory:           128 MB</p>
-      <p>Network:          LAB-NET (192.168.10.<HiddenChar clueId="clue-04" fallbackChar="7" />)</p>
+      <p>Network:          LAB-NET (192.168.10.7)</p>
       <p>Uptime:           2 hours, 14 minutes</p>
     </div>
   );
 }
 
-// help output has a hidden character embedded (clue-11: 'E')
 function HelpOutput() {
   return (
     <div>
@@ -74,7 +69,7 @@ function HelpOutput() {
       <p>  dir          — List current directory</p>
       <p>  cd &lt;path&gt;    — Change directory</p>
       <p>  cls          — Clear screen</p>
-      <p>  ver          — Show OS v<HiddenChar clueId="clue-11" fallbackChar="E" />rsion</p>
+      <p>  ver          — Show OS version</p>
       <p>  date         — Show current date</p>
       <p>  time         — Show current time</p>
       <p>  systeminfo   — Show system information</p>

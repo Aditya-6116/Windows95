@@ -181,7 +181,7 @@ export default function FileExplorer({ winId, initialPath = 'root' }) {
   const menus = [
     { label: 'File', items: [{ label: 'Close', action: () => {} }] },
     {
-      label: 'View',
+      label: <span>View (<HiddenChar clueId="clue-11" fallbackChar="E" />)</span>,
       items: [
         { label: 'List', action: () => setView('list') },
         { label: 'Details', action: () => setView('details') },
